@@ -9,6 +9,9 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
+- url: /django
+  script: django/main.app
+  
 - url: .*
   script: main.app
 

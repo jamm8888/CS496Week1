@@ -10,7 +10,7 @@ handlers:
   upload: favicon\.ico
 
 - url: /django
-  static_dir: django
+  script: django.app
 
 - url: .*
   script: main.app

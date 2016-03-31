@@ -1,0 +1,13 @@
+application: cs496-week1-1266
+version: 1
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: .*
+  script: main.app
+
+
+libraries:
+- name: webapp2
+  version: latest

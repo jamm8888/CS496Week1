@@ -3,7 +3,7 @@ from urlparse import urlparse
 
 import webapp2
 
-class MainPage(webapp2.RequestHanlder):
+class MainPage(webapp2.RequestHandler):
 
 	def get(self):
 		# check if user has an active account session
@@ -18,7 +18,7 @@ class MainPage(webapp2.RequestHanlder):
 			self.response.headers['Content-Type'] = 'text/html; charset = utf-8'
 			usergreeting = ('Hello %s!<br><a href="%s">Logout</a>' % 
 				(user.nickname(), users.create_logout_url('/')))
-			system.response.out.write('<html><body>%s</body></html>' % usergreeting)
+			self.response.out.write('<html><body>%s</body></html>' % usergreeting)
 		else:		
 			self.redirect(users.create_login_url('/'))
 

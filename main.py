@@ -3,7 +3,7 @@ from urlparse import urlparse
 
 import webapp2
 
-class MainPAge(webapp2.RequestHanlder):
+class MainPage(webapp2.RequestHanlder):
 
 	def get(self):
 		# check if user has an active account session

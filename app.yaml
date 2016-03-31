@@ -11,7 +11,7 @@ handlers:
 
 - url: /django
   static_dir: django
-  script: main.app
+
   
 - url: .*
   script: main.app

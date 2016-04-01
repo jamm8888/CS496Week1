@@ -1,26 +1,11 @@
-from google.appengine.api import users
-from urlparse import urlparse
-
+import datetime
 import webapp2
 
 class MainPage(webapp2.RequestHandler):
 
 	def get(self):
-		# check if user has an active account session
-		user = users.get_current_user()
-
-		# parse the urle and get the url only portion without the query string
-		url = urlparse(self.request.uri)
-		mainurl = url.scheme + "://" + url.netloc
-
-		# check if the user is logged in, if so display the logged in message
-		if user:
-			self.response.headers['Content-Type'] = 'text/html; charset = utf-8'
-			usergreeting = ('Hello %s!<br><a href="%s">Logout</a>' % 
-				(user.nickname(), users.create_logout_url('/')))
-			self.response.out.write('<html><body>%s</body></html>' % usergreeting)
-		else:		
-			self.redirect(users.create_login_url('/'))
+		message = '<p>The current time is: <b>%s</b></p>' % datetime.datetime.now()
+		self.response.out.write(message)
 
 app = webapp2.WSGIApplication([
 	('/', MainPage),
